@@ -1,0 +1,1 @@
+@movies = Movie.all

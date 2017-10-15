@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+./compile $1 $2 $3 $4 $5
+exit_status=$?
+
+if [ $exit_status -eq 1 ]; then
+  echo 'Gemini web server'
+  echo 'Listening...'
+  cd .website && rails server | grep -Ev '^(=>|\*|Puma|\/gems\/)'
+elif [ $exit_status -eq 2 ]; then
+  echo 'Gemini console'
+  cd .website && rails console
+elif [ $exit_status -eq 3 ]; then
+  echo 'Building...'
+  cd .website
+  bin/rails gemini:symlinks:update
+  bin/rails db:migrate
+  bin/rails gemini:models:update
+  bin/rails gemini:views:update
+  echo 'Website build complete.'
+  cd ..
+fi

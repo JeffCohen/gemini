@@ -1,0 +1,21 @@
+Movie
+  title
+  year: integer
+  poster_url
+  director_id
+
+Director
+  name
+
+Actor
+  name
+
+Role
+  actor_id
+  movie_id
+  character_name
+  agent_id
+  salary: integer
+
+Agent
+  name

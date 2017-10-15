@@ -1,0 +1,9 @@
+<h1>Movies</h1>
+
+<div class="row">
+  <% Movie.all.each do |movie| %>
+    <div class="col-sm-3">
+      <%= image_tag movie.poster_url, class: 'img-fluid' %>
+    </div>
+  <% end %>
+</div>

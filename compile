@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+commands = { 'server' => 1, 'console' => 2, 'build' => 3 }
+
+exit_code = commands[ARGV.first] || 0
+
+if exit_code == 0
+  puts "Usage:"
+  puts "   gemini [server|console|build]"
+  puts
+end
+
+exit(exit_code)
